@@ -110,7 +110,7 @@ Option                  | Description | Default value
 **loadIndicator**       | Show loading popup on performing actionOnClick action? | false
 **confirm**             | Confirm message for form submit button. | null 
 **form**                | Form config. Must contain fields config. | &nbsp;
-**formModel**           | Model class for form. | \October\Rain\Database\Model
+**modelClass**          | Model class for form. | \October\Rain\Database\Model
 
 Config for form popup must contain **actionOnClick** and **form** options.
 
