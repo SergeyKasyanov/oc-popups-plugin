@@ -289,7 +289,7 @@ class PopupController extends ControllerBehavior
         $params = array_merge($params, $this->vars);
 
         $contents = $this->controller->makePartial(
-            'reorder_' . $partial,
+            'popup_' . $partial,
             $params,
             false
         );
