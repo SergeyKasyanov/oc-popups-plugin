@@ -1,6 +1,7 @@
 {
     "name": "sergeykasyanov/oc-popups-plugin",
     "description": "PopupController behavior plugin for OctoberCMS.",
+    "type": "october-plugin",
     "minimum-stability": "stable",
     "license": "MIT",
     "authors": [
