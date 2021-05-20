@@ -13,6 +13,7 @@ use October\Rain\Support\Facades\Form;
  * @var string                $popupId
  * @var bool                  $loadIndicator
  * @var string|null           $confirm
+ * @var string|null           $successCallback
  * @var string                $actionOnClick
  * @var string                $modalPadding
  * @var bool                  $inset
@@ -22,8 +23,8 @@ use October\Rain\Support\Facades\Form;
  */
 ?>
 <?php if (!$inset): ?>
-    <div id="<?= $popupId ?>">
-<?php endif ?>
+<div id="<?= $popupId ?>">
+    <?php endif ?>
     <?= Form::open() ?>
     <?php if ($title): ?>
         <div class="modal-header">
@@ -42,8 +43,9 @@ use October\Rain\Support\Facades\Form;
             <button data-load-indicator="&nbsp;"
                     data-request="<?= $actionOnClick ?>"
                     data-request-validate
-                <?= $loadIndicator ? 'data-popup-load-indicator="1"' : '' ?>
-                <?= $confirm ? 'data-request-confirm="' . $confirm . '"' : '' ?>
+                    <?= $successCallback ? 'data-request-success="' . $successCallback . '"' : '' ?>
+                    <?= $loadIndicator ? 'data-popup-load-indicator="1"' : '' ?>
+                    <?= $confirm ? 'data-request-confirm="' . $confirm . '"' : '' ?>
                     type="submit" class="<?= $actionBtnClass ?>">
                 <?= $actionBtnLabel ?>
             </button>
@@ -53,6 +55,6 @@ use October\Rain\Support\Facades\Form;
         </div>
     </div>
     <?= Form::close() ?>
-<?php if (!$inset): ?>
-    </div>
+    <?php if (!$inset): ?>
+</div>
 <?php endif ?>

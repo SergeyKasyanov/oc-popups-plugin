@@ -108,7 +108,8 @@ Option                  | Description | Default value
 **actionBtnClass**      | Css class of  form submit button. | btn btn-primary
 **actionOnClick**       | Action on form submit button. | &nbsp;
 **loadIndicator**       | Show loading popup on performing actionOnClick action? | false
-**confirm**             | Confirm message for form submit button. | null 
+**confirm**             | Confirm message for form submit button. | null
+**successCallback**     | Javascript callback for execute after success. | null
 **form**                | Form config. Must contain fields config. | &nbsp;
 **modelClass**          | Model class for form. | \October\Rain\Database\Model
 

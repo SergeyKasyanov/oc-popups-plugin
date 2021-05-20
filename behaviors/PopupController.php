@@ -115,6 +115,8 @@ class PopupController extends ControllerBehavior
     /**
      * @param string          $definition
      * @param \stdClass|array $popupConfig
+     *
+     * @throws \SystemException
      */
     protected function bindForm(string $definition, $popupConfig): void
     {
@@ -258,16 +260,17 @@ class PopupController extends ControllerBehavior
         $content      = $this->controller->getPopupContent($definition);
         $contentBelow = $this->controller->getPopupContent($definition, true);
 
-        $params                   = $this->getMainParams($definition, $popupConfig);
-        $params['title']          = $popupConfig->title ?? null;
-        $params['content']        = $content;
-        $params['contentBelow']   = $contentBelow;
-        $params['actionBtnLabel'] = $popupConfig->actionBtnLabel ?? 'OK';
-        $params['actionBtnClass'] = $popupConfig->actionBtnClass ?? 'btn btn-primary';
-        $params['loadIndicator']  = $popupConfig->loadIndicator ?? false;
-        $params['confirm']        = $popupConfig->confirm ?? null;
-        $params['actionOnClick']  = $popupConfig->actionOnClick;
-        $params['form']           = $this->controller->widget->{$this->makePopupFormAlias($definition)};
+        $params                    = $this->getMainParams($definition, $popupConfig);
+        $params['title']           = $popupConfig->title ?? null;
+        $params['content']         = $content;
+        $params['contentBelow']    = $contentBelow;
+        $params['actionBtnLabel']  = $popupConfig->actionBtnLabel ?? 'OK';
+        $params['actionBtnClass']  = $popupConfig->actionBtnClass ?? 'btn btn-primary';
+        $params['loadIndicator']   = $popupConfig->loadIndicator ?? false;
+        $params['confirm']         = $popupConfig->confirm ?? null;
+        $params['actionOnClick']   = $popupConfig->actionOnClick;
+        $params['form']            = $this->controller->widget->{$this->makePopupFormAlias($definition)};
+        $params['successCallback'] = $popupConfig->successCallback ?? null;
 
         return $this->popupMakePartial('form_popup', $params);
     }
